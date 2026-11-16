@@ -1,0 +1,64 @@
+{
+  "name": "@local/machine-badge",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DSH Web UI plugin that adds this machine to the sidebar panel list as a fully configurable row — color, icon, text, text color and alignment — with a settings page.",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "IyNew",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IyNew/dsh-window-identifier.git"
+  },
+  "homepage": "https://github.com/IyNew/dsh-window-identifier#readme",
+  "bugs": {
+    "url": "https://github.com/IyNew/dsh-window-identifier/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "sidebar",
+    "hostname",
+    "identity"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-plugin-manager"
+      ]
+    }
+  }
+}

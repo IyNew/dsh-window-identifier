@@ -1,0 +1,26 @@
+# Window Identifier — identifies the machine serving this DSH Web page.
+#
+# Without configuration the Host derives the identity from itself: label = the
+# short hostname, and a color plus icon chosen by a stable hash of that hostname.
+#
+# The same values can be edited in Settings -> Plugins -> Window Identifier.
+# That writes an override into the profile's cordis.patch.yml, so it wins over
+# this bundle default and survives upgrades. You can also set them here:
+#
+#   config:
+#     label: gpu-node-3        # text shown in the row (default: short hostname)
+#     color: red               # palette word, or #rgb / #rrggbb
+#     icon: server             # server | cloud | database | flask | bolt |
+#                              # home | box | pin, or short text/emoji, or none.
+#                              # An icon uploaded from the settings page is
+#                              # stored here as a base64 data URL.
+#     background: false        # false = transparent row (default: the row is
+#                              # filled with `color`)
+#     text: '#ffffff'          # label color (default: automatic)
+#     align: left              # left | center | right
+#
+# Host code is not hot-reloaded: after editing this file, restart dsh.
+- insert:
+    - id: machine-badge
+      name: '@local/machine-badge'
+      config: {}
